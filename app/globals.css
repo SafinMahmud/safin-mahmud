@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-rule: var(--rule);
+  --color-chip: var(--chip);
+  --color-accent: var(--accent);
+  --color-focus: var(--focus);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --bg: #0e0e0c;
+  --bg-elev: #161613;
+  --fg: #e8e6e1;
+  --fg-muted: #8a8780;
+  --rule: #2a2925;
+  --chip: #1c1b18;
+  --accent: #e24a1b;
+  --focus: #e24a1b;
+  color-scheme: dark;
+}
+
+html.dark {
+  --bg: #0e0e0c;
+  --bg-elev: #161613;
+  --fg: #e8e6e1;
+  --fg-muted: #8a8780;
+  --rule: #2a2925;
+  --chip: #1c1b18;
+  --accent: #e24a1b;
+  --focus: #e24a1b;
+  color-scheme: dark;
+}
+
+html.light {
+  --bg: #f4f1ea;
+  --bg-elev: #ebe6dc;
+  --fg: #1a1916;
+  --fg-muted: #6b6860;
+  --rule: #d4cfc4;
+  --chip: #e5dfd3;
+  --accent: #c2410c;
+  --focus: #c2410c;
+  color-scheme: light;
+}
+
+html {
+  background: var(--bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.0625rem;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-optical-sizing: auto;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  z-index: 100;
+  background: var(--bg);
+  color: var(--accent);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

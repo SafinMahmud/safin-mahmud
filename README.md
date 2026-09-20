@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Safin Mahmud — portfolio
 
-## Getting Started
+Personal site. Next.js App Router, TypeScript, Tailwind CSS. Content lives in typed files under `content/` so you can edit copy without touching JSX.
 
-First, run the development server:
+## Setup
+
+Requires Node 20+ and [pnpm](https://pnpm.io/).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm lint
+pnpm build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to add a project
 
-## Learn More
+1. Add a screenshot (or gif) to `public/projects/` — use a real file with known pixel size.
+2. Open [`content/projects.ts`](content/projects.ts) and append an object that matches `Project`:
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+{
+  title: "Name",
+  oneLiner: "One sentence.",
+  problem: "What was broken or missing.",
+  approach: "What you built, and why that shape.",
+  stack: ["Python", "FastAPI"],
+  outcome: "What changed. A number if you have one.",
+  repoUrl: "https://github.com/you/repo",
+  liveUrl: "https://example.com", // omit this key if there is no live demo
+  mediaUrl: "/projects/your-shot.png",
+  year: 2026,
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Do not add `liveUrl` unless the URL works. The UI will not render a Live demo link without it.
+4. Stack strings become filter chips. Reuse existing labels when the same tool appears (`FastAPI`, not `fastapi`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace any `TODO_*` constants in `content/` before you treat the site as public. Empty, `null`, or `TODO…` hrefs are not rendered.
 
-## Deploy on Vercel
+## Other content files
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| File | What it drives |
+| --- | --- |
+| [`content/site.ts`](content/site.ts) | Name, positioning line, location, email, GitHub, LinkedIn, resume |
+| [`content/projects.ts`](content/projects.ts) | Selected Work |
+| [`content/experience.ts`](content/experience.ts) | Roles — keep two or three outcome bullets each |
+| [`content/about.ts`](content/about.ts) | Three short paragraphs |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Resume: put a PDF at `public/resume.pdf` and set `site.resumeUrl` to `"/resume.pdf"`. Leave it `null` until the file exists.
+
+Optional: set `NEXT_PUBLIC_SITE_URL` (no trailing slash) so Open Graph URLs and the sitemap use your real domain.
+
+## Theme
+
+Dark is the default. The first visit follows `prefers-color-scheme` when nothing is stored. The toggle writes `theme` to `localStorage`. A blocking script in `app/layout.tsx` applies the class before paint so the wrong theme does not flash.
+
+## Deploy to Vercel
+
+From this directory, with the [Vercel CLI](https://vercel.com/docs/cli):
+
+```bash
+pnpm i -g vercel
+vercel login
+vercel        # preview
+vercel --prod # production
+```
+
+Or: import the GitHub repo at [vercel.com/new](https://vercel.com/new), framework preset **Next.js**, root directory `.`, build command `pnpm build`, output left default. Add `NEXT_PUBLIC_SITE_URL` as `https://<your-domain>` in the project env vars.
+
+No `vercel.json` is required.
