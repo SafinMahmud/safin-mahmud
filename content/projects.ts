@@ -33,19 +33,6 @@ export const projects: Project[] = [
     year: 2026,
   },
   {
-    title: "Contract work — TechTrioz",
-    oneLiner:
-      "SOAP/REST interoperability and FrontAccounting ERP customizations for enterprise clients, plus the rebate platform that replaced Excel at an SAP shop.",
-    problem:
-      "Clients needed ERP systems to talk to outside services, and one SAP customer was still calculating rebates in spreadsheets.",
-    approach:
-      "On the 2024–2025 contract I integrated third-party SOAP and REST APIs and extended FrontAccounting with custom SQL reports and API endpoints. Earlier, I designed a Django / Vue / PostgreSQL rebate management system with a rule engine and an SAP-to-Postgres ETL pipeline so monthly reporting no longer lived in Excel.",
-    stack: ["Django", "Vue.js", "PostgreSQL", "SOAP", "REST", "SAP"],
-    outcome:
-      "ERP platforms exchanged data with external services through the new APIs, and the rebate system automated monthly calculations and reporting for the SAP client.",
-    year: 2025,
-  },
-  {
     title: "AI Interview Coach",
     oneLiner:
       "An interview prep app that turns a CV and job description into questions, then scores spoken or typed answers.",

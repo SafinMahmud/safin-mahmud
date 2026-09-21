@@ -48,8 +48,10 @@ Replace any `TODO_*` constants in `content/` before you treat the site as public
 | File | What it drives |
 | --- | --- |
 | [`content/site.ts`](content/site.ts) | Name, positioning line, location, email, GitHub, LinkedIn, resume |
-| [`content/projects.ts`](content/projects.ts) | Selected Work |
-| [`content/experience.ts`](content/experience.ts) | Roles — keep two or three outcome bullets each |
+| [`content/projects.ts`](content/projects.ts) | Projects |
+| [`content/experience.ts`](content/experience.ts) | Roles and nested freelance engagements |
+| [`content/opensource.ts`](content/opensource.ts) | Open source pull requests |
+| [`content/education.ts`](content/education.ts) | Degrees and publication |
 | [`content/about.ts`](content/about.ts) | Three short paragraphs |
 
 Resume: put a PDF at `public/resume.pdf` and set `site.resumeUrl` to `"/resume.pdf"`. Leave it `null` until the file exists.

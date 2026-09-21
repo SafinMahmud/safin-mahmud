@@ -1,6 +1,8 @@
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
+import { EducationList } from "@/components/EducationList";
 import { ExperienceList } from "@/components/ExperienceList";
+import { OpenSourceList } from "@/components/OpenSourceList";
 import { Section } from "@/components/Section";
 import { SelectedWork } from "@/components/SelectedWork";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -21,13 +23,19 @@ export default function Home() {
           <Section id="experience" index="01" title="Experience">
             <ExperienceList />
           </Section>
-          <Section id="work" index="02" title="Selected Work">
+          <Section id="projects" index="02" title="Projects">
             <SelectedWork />
           </Section>
-          <Section id="about" index="03" title="About">
+          <Section id="open-source" index="03" title="Open source">
+            <OpenSourceList />
+          </Section>
+          <Section id="education" index="04" title="Education">
+            <EducationList />
+          </Section>
+          <Section id="about" index="05" title="About">
             <About />
           </Section>
-          <Section id="contact" index="04" title="Contact">
+          <Section id="contact" index="06" title="Contact">
             <Contact />
           </Section>
         </main>
