@@ -79,26 +79,19 @@ export function ProjectRow({
         ) : null}
       </p>
 
-      <figure className="relative mt-6 max-w-[40rem] overflow-hidden bg-bg-elev">
-        <Image
-          src={project.mediaUrl}
-          alt={
-            project.mediaUrl.includes("todo-media")
-              ? `TODO_MEDIA: add a screenshot for ${project.title}`
-              : `Screenshot of ${project.title}`
-          }
-          width={1200}
-          height={480}
-          sizes="(max-width: 768px) 100vw, 640px"
-          className="aspect-[2.5/1] h-auto w-full object-cover"
-          priority={imagePriority}
-        />
-        {project.mediaUrl.includes("todo-media") ? (
-          <figcaption className="pointer-events-none absolute left-4 top-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-fg-muted">
-            TODO_MEDIA
-          </figcaption>
-        ) : null}
-      </figure>
+      {project.mediaUrl ? (
+        <figure className="relative mt-6 max-w-[40rem] overflow-hidden bg-bg-elev">
+          <Image
+            src={project.mediaUrl}
+            alt={`Screenshot of ${project.title}`}
+            width={project.mediaWidth ?? 1280}
+            height={project.mediaHeight ?? 720}
+            sizes="(max-width: 768px) 100vw, 640px"
+            className="h-auto w-full object-cover"
+            priority={imagePriority}
+          />
+        </figure>
+      ) : null}
 
       <details className="group mt-5 max-w-[40rem]">
         <summary className="cursor-pointer list-none font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-fg-muted transition-colors duration-150 hover:text-fg [&::-webkit-details-marker]:hidden">

@@ -18,11 +18,11 @@ export default function Home() {
         </div>
         <main id="main">
           <SiteHeader />
-          <Section id="work" index="01" title="Selected Work">
-            <SelectedWork />
-          </Section>
-          <Section id="experience" index="02" title="Experience">
+          <Section id="experience" index="01" title="Experience">
             <ExperienceList />
+          </Section>
+          <Section id="work" index="02" title="Selected Work">
+            <SelectedWork />
           </Section>
           <Section id="about" index="03" title="About">
             <About />

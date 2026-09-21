@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
-  { href: "#work", id: "work", label: "Work" },
   { href: "#experience", id: "experience", label: "Experience" },
+  { href: "#work", id: "work", label: "Work" },
   { href: "#about", id: "about", label: "About" },
   { href: "#contact", id: "contact", label: "Contact" },
 ] as const;

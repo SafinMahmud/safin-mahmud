@@ -70,7 +70,7 @@ export function SelectedWork() {
         <div>
           {visible.map((project, index) => (
             <ProjectRow
-              key={project.repoUrl}
+              key={project.title}
               project={project}
               onFilterStack={(tag) =>
                 writeStackParam(active === tag ? null : tag)
