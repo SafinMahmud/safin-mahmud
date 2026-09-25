@@ -12,7 +12,7 @@ export function Section({ id, index, title, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={headingId}
-      className="grid scroll-mt-16 md:min-h-[calc(100svh-4rem)] grid-cols-1 content-start border-b border-rule py-10 md:grid-cols-[9rem_minmax(0,1fr)] md:gap-10 md:py-14"
+      className="grid scroll-mt-16 grid-cols-1 content-start border-b border-rule py-10 md:grid-cols-[9rem_minmax(0,1fr)] md:gap-10 md:py-14"
     >
       <header className="mb-6 md:mb-0 md:border-r md:border-rule md:pr-6">
         <p className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-fg-muted">
