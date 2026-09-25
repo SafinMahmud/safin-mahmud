@@ -1,4 +1,3 @@
-import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { EducationList } from "@/components/EducationList";
 import { ExperienceList } from "@/components/ExperienceList";
@@ -32,10 +31,7 @@ export default function Home() {
           <Section id="education" index="04" title="Education">
             <EducationList />
           </Section>
-          <Section id="about" index="05" title="About">
-            <About />
-          </Section>
-          <Section id="contact" index="06" title="Contact">
+          <Section id="contact" index="05" title="Contact">
             <Contact />
           </Section>
         </main>

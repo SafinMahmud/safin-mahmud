@@ -52,6 +52,7 @@ html.light {
 
 html {
   background: var(--bg);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -98,6 +99,104 @@ h3 {
   top: 1rem;
 }
 
+.nav-link {
+  position: relative;
+  transition:
+    color 150ms ease,
+    opacity 150ms ease;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.35rem;
+  left: 0;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.intro-reveal {
+  animation: intro-rise 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.intro-delay-1 {
+  animation-delay: 70ms;
+}
+
+.intro-delay-2 {
+  animation-delay: 140ms;
+}
+
+.intro-delay-3 {
+  animation-delay: 210ms;
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-nav {
+  view-transition-name: site-nav;
+}
+
+main > section:last-of-type {
+  min-height: calc(100svh - 4rem);
+}
+
+::view-transition-group(site-nav) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  animation: page-out 260ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+::view-transition-new(root) {
+  animation: page-in 380ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-2.5rem);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+}
+
+.folio {
+  animation: folio-in 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes folio-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -106,5 +205,12 @@ h3 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .intro-reveal,
+  .folio {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
