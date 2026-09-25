@@ -7,6 +7,6 @@ export const site = {
   githubUrl: "https://github.com/SafinMahmud",
   linkedinUrl: "https://www.linkedin.com/in/safin-mahmud",
   resumeUrl: "/resume.pdf",
-  profileImage: "/profile.jpg",
+  profileImage: null as string | null,
   profileImageAlt: "Safin Mahmud",
 };
